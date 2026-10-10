@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ContactHub</title>
+    <title>ContactHub - Smart Contact Manager</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -75,7 +75,7 @@
         </div>
       </div>
     </nav>
-    <main>
+    <main class="mt-5 pt-5">
       <div class="modal" id="contactModal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content overflow-y-auto max-h">
@@ -152,19 +152,81 @@
                     placeholder="Additional notes"
                   ></textarea>
                 </div>
+                <div class="mb-3 d-flex gap-3">
+                  <label for="contactFavorite" class="cursor">
+                    <input type="checkbox" id="contactFavorite">
+                    <span>
+                      <i class="fas fa-star text-gold"></i>
+                      Favorite
+                    </span>
+                  </label>
+                  <label for="contactEmergency" class="cursor">
+                    <input type="checkbox" id="contactEmergency">
+                    <span>
+                      <i class="fas fa-heart-pulse text-red"></i>
+                      Emergency
+                    </span>
+                  </label>
+                </div>
               </form>
             </div>
             <div class="modal-footer border-top-0">
               <button
-                type="button"
+                type="button" id="closeButton"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" id="saveButton" class="btn btn-primary">
                 Save changes
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="container-lg px-4 row">
+          <div class="p-2 w-50">
+            <div
+              class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
+            >
+              <span class="fa-stack fa-2x">
+                <i class="fa-solid fa-square text-danger fa-stack-2x"></i>
+                <i class="fa-solid fa-users fa-stack-1x fa-inverse"></i>
+              </span>
+              <div>
+                <p>TOTAL</p>
+                <p>0</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 w-50">
+            <div
+              class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
+            >
+              <span class="fa-stack fa-2x">
+                <i class="fa-solid fa-square fa-stack-2x"></i>
+                <i class="fa-solid fa-star fa-stack-1x fa-inverse"></i>
+              </span>
+              <div>
+                <p>FAVORITE</p>
+                <p>0</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 w-50">
+            <div
+              class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
+            >
+              <span class="fa-stack fa-2x">
+                <i class="fa-solid fa-square fa-stack-2x"></i>
+                <i class="fa-solid fa-heart-pulse fa-stack-1x fa-inverse"></i>
+              </span>
+              <div>
+                <p>EMERGENCY</p>
+                <p>0</p>
+              </div>
             </div>
           </div>
         </div>

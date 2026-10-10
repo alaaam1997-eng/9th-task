@@ -96,6 +96,12 @@ img {
 .text-main {
   color: var(--main-color);
 }
+.text-gold {
+  color: var(--gold-color);
+}
+.text-red {
+  color: var(--red-color);
+}
 
 .text-gray {
   color: var(--sec-color);
