@@ -85,16 +85,20 @@ img {
   --main-color: #7f22fe;
   --main-color-opacity: #7008e765;
   --sec-color: #6a7282;
-  --light-gray-color: #6a7282;
+  --light-gray-color: #4a5565;
   --light-gray1-color: #D1D5DC;
   --light-gray2-color: #F3F4F6;
   --dark-gray: #101828;
+  --green-color: #009966;
+  --light-green-color: #D0FAE5;
   --dark-white-color: #f8fafc;
   --gold-color: #ffb900;
   --light-orange-color: #fffaeb;
   --orange-color: #ff6900;
   --light-pink-color: #fce7f3;
-  --light-red-color: #ffe2e2;
+  --light-purple-color: #EDE9FE;
+  --blue-color: #155DFC;
+  --light-blue-color: #DBEAFE;
   --red-color: #e7000b;
   --light-red-color: #FEF1F2;
 }
@@ -107,6 +111,12 @@ img {
 }
 .text-red {
   color: var(--red-color);
+}
+.text-blue {
+  color: var(--blue-color);
+}
+.text-green {
+  color: var(--green-color);
 }
 
 .text-gray {
@@ -165,6 +175,18 @@ img {
   background-color: var(--dark-gray);
 }
 
+.bg-light-blue {
+  background-color: var(--light-blue-color);
+}
+.bg-light-green {
+  background-color: var(--light-green-color);
+}
+.bg-light-purple {
+  background-color: var(--light-purple-color);
+}
+.bg-gold {
+  background-color: var(--gold-color);
+}
 .bg-orange {
   background-color: var(--orange-color);
 }
@@ -194,4 +216,26 @@ img {
 }
 .max-h {
   max-height: 90vh;
+}
+
+.img-card {
+  width: 60px;
+  height: 60px;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+.icon-top {
+  top: -5px;
+  right: -5px;
+}
+.icon-bottom {
+  bottom: -5px;
+  right: -5px;
+}
+
+.icon-footer {
+  width: 35px;
+  height: 35px;
 }
