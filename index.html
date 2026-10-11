@@ -154,14 +154,14 @@
                 </div>
                 <div class="mb-3 d-flex gap-3">
                   <label for="contactFavorite" class="cursor">
-                    <input type="checkbox" id="contactFavorite">
+                    <input type="checkbox" id="contactFavorite" />
                     <span>
                       <i class="fas fa-star text-gold"></i>
                       Favorite
                     </span>
                   </label>
                   <label for="contactEmergency" class="cursor">
-                    <input type="checkbox" id="contactEmergency">
+                    <input type="checkbox" id="contactEmergency" />
                     <span>
                       <i class="fas fa-heart-pulse text-red"></i>
                       Emergency
@@ -172,7 +172,8 @@
             </div>
             <div class="modal-footer border-top-0">
               <button
-                type="button" id="closeButton"
+                type="button"
+                id="closeButton"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
@@ -185,54 +186,148 @@
           </div>
         </div>
       </div>
-      <div>
-        <div class="container-lg px-4 row">
-          <div class="p-2 w-50">
-            <div
-              class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
-            >
-              <span class="fa-stack fa-2x">
-                <i class="fa-solid fa-square text-danger fa-stack-2x"></i>
-                <i class="fa-solid fa-users fa-stack-1x fa-inverse"></i>
-              </span>
-              <div>
-                <p>TOTAL</p>
-                <p>0</p>
-              </div>
+      <div class="container-lg px-4 row m-auto g-3">
+        <div class="col-6 col-md-4">
+          <div
+            class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
+          >
+            <span class="fa-stack shadow-blue fa-1x">
+              <i class="fa-solid fa-square fa-stack-1x"></i>
+              <i
+                class="fa-solid fa-users shadow-blue bg-linear-blue rounded-3 fa-stack-1x fa-inverse"
+              ></i>
+            </span>
+            <div>
+              <p class="fw-medium fs-12 text-gray">TOTAL</p>
+              <p class="fw-bold fs-5 text-dark-gray">0</p>
             </div>
           </div>
-          <div class="p-2 w-50">
-            <div
-              class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
-            >
-              <span class="fa-stack fa-2x">
-                <i class="fa-solid fa-square fa-stack-2x"></i>
-                <i class="fa-solid fa-star fa-stack-1x fa-inverse"></i>
-              </span>
-              <div>
-                <p>FAVORITE</p>
-                <p>0</p>
-              </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div
+            class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
+          >
+            <span class="fa-stack fa-1x">
+              <i class="fa-solid fa-square fa-stack-1x"></i>
+              <i
+                class="fa-solid fa-star shadow-orange fa-stack-1x bg-linear-orange rounded-3 fa-inverse"
+              ></i>
+            </span>
+            <div>
+              <p class="fw-medium fs-12 text-gray">FAVORITE</p>
+              <p class="fw-bold fs-5 text-dark-gray">0</p>
             </div>
           </div>
-          <div class="p-2 w-50">
-            <div
-              class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
-            >
-              <span class="fa-stack fa-2x">
-                <i class="fa-solid fa-square fa-stack-2x"></i>
-                <i class="fa-solid fa-heart-pulse fa-stack-1x fa-inverse"></i>
-              </span>
-              <div>
-                <p>EMERGENCY</p>
-                <p>0</p>
-              </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div
+            class="bg-white shadow-sm rounded-4 p-3 d-flex align-items-center gap-3"
+          >
+            <span class="fa-stack fa-1x">
+              <i class="fa-solid fa-square fa-stack-1x"></i>
+              <i
+                class="fa-solid fa-heart-pulse rounded-3 bg-linear-red shadow-red fa-stack-1x fa-inverse"
+              ></i>
+            </span>
+            <div>
+              <p class="fw-medium fs-12 text-gray">EMERGENCY</p>
+              <p class="fw-bold fs-5 text-dark-gray">0</p>
             </div>
           </div>
         </div>
       </div>
+      <div class="container-lg container-fluid  p-4">
+        <div class="row">
+          <div class="col-lg-9">
+            <section id="contacts-header" class="mb-5 px-4">
+              <div>
+                <h2 class="fw-bold fs-4 text-dark-gray">All Contacts</h2>
+                <p class="fw-normal fs-14 text-gray">
+                  Manage and organize your 0 contacts
+                </p>
+                <div class="position-relative my-3">
+                  <div class="position-absolute top-50 translate-middle-y ms-3">
+                    <i class="fas fa-search text-black"></i>
+                  </div>
+                  <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search by name, phone, or email..."
+                    class="form-control ps-5 py-3 rounded-4"
+                  />
+                </div>
+              </div>
+            </section>
+            <section id="contacts-header" class="py-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-4">
+                <div class="col-span-full text-center py-20">
+                  <div
+                    class="w-20 h-20 mx-auto mb-4 bg-gray-100 rounded-2xl flex items-center justify-center"
+                  >
+                    <span class="fa-stack fa-2x mb-2">
+                      <i
+                        class="fa-solid fa-square text-light-gray2 fa-stack-2x"
+                      ></i>
+                      <i
+                        class="fa-solid fa-address-book text-light-gray1 fa-stack-1x fa-inverse"
+                      ></i>
+                    </span>
+                    <p class="text-gray fw-medium fs-6">No contacts found</p>
+                    <p class="text-light-gray1 fw-normal fs-14">
+                      Click "Add Contact" to get started
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-3">
+            <section
+              class="bg-white shadow-sm overflow-hidden p-0 rounded-4 mb-4"
+            >
+              <div class="bg-light-orange d-flex align-items-center gap-3 p-3">
+                <span class="fa-stack fa-1x">
+                  <i class="fa-solid fa-square fa-stack-1x"></i>
+                  <i
+                    class="fa-solid fa-star shadow-orange fa-stack-1x bg-linear-orange rounded-3 fa-inverse"
+                  ></i>
+                </span>
+                <div>
+                  <p class="fw-semibold fs-14 text-dark-gray">Favorite</p>
+                  <p class="fw-normal fs-10 text-light-gray">Quick access</p>
+                </div>
+              </div>
+              <div class="py-5">
+                <p class="text-center text-light-gray1 fw-normal fs-14">
+                  No favorites yet
+                </p>
+              </div>
+            </section>
+            <section
+              class="bg-white shadow-sm p-0 rounded-4 overflow-hidden mb-4"
+            >
+              <div class="bg-light-red d-flex align-items-center gap-3 p-3">
+                <span class="fa-stack fa-1x">
+                  <i class="fa-solid fa-square fa-stack-1x"></i>
+                  <i
+                    class="fa-solid fa-heart-pulse rounded-3 bg-linear-red shadow-red fa-stack-1x fa-inverse"
+                  ></i>
+                </span>
+                <div>
+                  <p class="fw-semibold fs-14 text-dark-gray">Emergency</p>
+                  <p class="fw-normal fs-10 text-light-gray">Urgent contacts</p>
+                </div>
+              </div>
+              <div class="py-5">
+                <p class="text-center text-light-gray1 fw-normal fs-14">
+                  No emergency contacts
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </main>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

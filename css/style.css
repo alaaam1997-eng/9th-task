@@ -45,6 +45,10 @@ img {
   height: 24rem;
 }
 
+.fs-10 {
+  font-size: 0.625rem;
+}
+
 .fs-12 {
   font-size: 0.75rem;
 }
@@ -82,7 +86,8 @@ img {
   --main-color-opacity: #7008e765;
   --sec-color: #6a7282;
   --light-gray-color: #6a7282;
-  --light-gray2-color: #4a5565;
+  --light-gray1-color: #D1D5DC;
+  --light-gray2-color: #F3F4F6;
   --dark-gray: #101828;
   --dark-white-color: #f8fafc;
   --gold-color: #ffb900;
@@ -91,6 +96,7 @@ img {
   --light-pink-color: #fce7f3;
   --light-red-color: #ffe2e2;
   --red-color: #e7000b;
+  --light-red-color: #FEF1F2;
 }
 
 .text-main {
@@ -109,6 +115,12 @@ img {
 .text-light-gray {
   color: var(--light-gray-color);
 }
+.text-light-gray1 {
+  color: var(--light-gray1-color);
+}
+.text-light-gray2 {
+  color: var(--light-gray2-color);
+}
 
 .text-dark-gray {
   color: var(--dark-gray);
@@ -117,12 +129,29 @@ img {
 .text-brown {
   color: var(--brown-color);
 }
-
+.shadow-blue {
+  box-shadow:  0px 5px 20px 0px #C9DFFF;
+}
+.shadow-orange {
+  box-shadow:  0px 5px 20px 0px #FFE6C0;
+}
+.shadow-red {
+  box-shadow:  0px 5px 20px 0px #FFC2D1;
+}
 .bg-main {
   background-color: var(--main-color);
 }
 .bg-linear {
   background-image: linear-gradient(to right bottom, #7f22fe 20%, #4f39f6);
+}
+.bg-linear-orange {
+  background-image: linear-gradient(to right bottom, #FFA900 20%, #FF7800);
+}
+.bg-linear-blue {
+  background-image: linear-gradient(to right bottom, #287AFF 20%, #1963FD);
+}
+.bg-linear-red {
+  background-image: linear-gradient(to right bottom,#FC1B4F 20%, #EB0021);
 }
 
 .bg-yellow {
