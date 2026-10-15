@@ -179,8 +179,136 @@
               >
                 Close
               </button>
-              <button type="button" id="saveButton" class="btn btn-primary" data-bs-dismiss="modal">
+              <button
+                type="button"
+                id="saveButton"
+                class="btn btn-primary d-block"
+                data-bs-dismiss="modal"
+              >
                 Save contact
+              </button>
+              <button
+                type="button"
+                id="editButton"
+                class="btn btn-primary d-none"
+                data-bs-dismiss="modal"
+              >
+                edit contact
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content overflow-y-auto max-h">
+            <div class="modal-header border-bottom-0">
+              <h5 class="modal-title">Update New Contact</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="myForm">
+                <div class="mb-3">
+                  <label for="fullNameUpdate" class="form-label">Full Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullNameUpdate"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="phoneNumberUpdate" class="form-label"
+                    >Phone Number *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phoneNumberUpdate"
+                    placeholder="e.g.,01012345678"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="emailAddressUpdate" class="form-label"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailAddressUpdate"
+                    placeholder="Enter email address"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="addressUpdate" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="addressUpdate"
+                    placeholder="Enter address"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="groupUpdate" class="form-label">Group</label>
+                  <select class="form-control" id="groupUpdate">
+                    <option value="">Select a group</option>
+                    <option value="family">Family</option>
+                    <option value="friends">Friends</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="notesUpdate" class="form-label">Notes</label>
+                  <textarea
+                    class="form-control"
+                    id="notesUpdate"
+                    rows="3"
+                    placeholder="Additional notes"
+                  ></textarea>
+                </div>
+                <div class="mb-3 d-flex gap-3">
+                  <label for="contactFavoriteUpdate" class="cursor">
+                    <input type="checkbox" id="contactFavoriteUpdate" />
+                    <span>
+                      <i class="fas fa-star text-gold"></i>
+                      Favorite
+                    </span>
+                  </label>
+                  <label for="contactEmergencyUpdate" class="cursor">
+                    <input type="checkbox" id="contactEmergencyUpdate" />
+                    <span>
+                      <i class="fas fa-heart-pulse text-red"></i>
+                      Emergency
+                    </span>
+                  </label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer border-top-0">
+              <button
+                type="button"
+                id="closeButton"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                id="editButton"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Update contact
               </button>
             </div>
           </div>
@@ -259,8 +387,137 @@
               </div>
             </section>
             <section id="contactsContainer" class="py-5 px-4">
-              <div class="row">
-                <div class="text-center py-5 col-12 d-none">
+              <div class="row row-contactsContainer">
+                <!-- <div class="col-6 bg-white rounded-4 shadow-sm p-3">
+                  <div class="d-flex gap-2">
+                    <div
+                      class="img-card position-relative bg-linear-orange rounded-3 d-flex align-items-center justify-content-center"
+                    >
+                      <p class="fw-semibold fs-5 text-white">A</p>
+                      <div
+                        class="starIcon rounded-circle bg-gold border border-2 border-white icon icon-top d-flex align-items-center justify-content-center position-absolute"
+                      >
+                        <i
+                          class="fa-solid fa-star fa-2xs fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </div>
+                      <div
+                        class="position-absolute rounded-circle bg-danger border border-2 border-white icon icon-bottom d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-heart-pulse fa-2xs fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="fw-semibold fs-6 text-dark-gray">alaa</p>
+                      <div class="d-flex align-items-center gap-2">
+                        <div
+                          class="rounded-3 bg-light-blue icon d-flex align-items-center justify-content-center"
+                        >
+                          <i
+                            class="fa-solid fa-phone text-blue fa-2xs fa-stack-1x fa-inverse position-static"
+                          ></i>
+                        </div>
+                        <p class="fw-normal fs-14 text-light-gray">
+                          1234567890
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center gap-2 my-3">
+                    <div
+                      class="rounded-3 bg-light-purple icon d-flex align-items-center justify-content-center"
+                    >
+                      <i
+                        class="fa-solid fa-envelope text-main fa-2xs fa-stack-1x fa-inverse position-static"
+                      ></i>
+                    </div>
+                    <p class="fw-normal fs-14 text-light-gray">
+                      alaa.am1997@gmail.com
+                    </p>
+                  </div>
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <div
+                      class="rounded-3 bg-light-green icon d-flex align-items-center justify-content-center"
+                    >
+                      <i
+                        class="fa-solid fa-location-dot text-green fa-2xs fa-stack-1x fa-inverse position-static"
+                      ></i>
+                    </div>
+                    <p class="fw-normal fs-14 text-light-gray">
+                      alaa.am1997@gmail.com
+                    </p>
+                  </div>
+                  <div
+                    class="d-flex align-items-center gap-2 border-bottom pb-3"
+                  >
+                    <p
+                      class="bg-light-green p-1 rounded-3 fw-medium fs-10 text-green"
+                    >
+                      friends
+                    </p>
+                    <p
+                      class="bg-light-red p-1 rounded-3 fw-medium fs-10 text-red"
+                    >
+                      <i class="fas fa-heart-pulse"></i>
+                      Emergency
+                    </p>
+                  </div>
+                  <div
+                    class="d-flex align-items-center justify-content-between pt-3"
+                  >
+                    <div class="d-flex align-items-center gap-2">
+                      <button
+                        class="rounded-3 border-0 bg-light-green icon-footer d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-phone text-green fa-sm fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </button>
+                      <button
+                        class="rounded-3 border-0 bg-light-purple icon-footer d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-envelope text-main fa-sm fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </button>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <button
+                        class="rounded-3 border-0 bg-light-orange icon-footer d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-star text-gold fa-sm fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </button>
+                      <button
+                        class="rounded-3 border-0 bg-light-red icon-footer d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-heart-pulse text-red fa-sm fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </button>
+                      <button
+                        class="rounded-3 border-0 icon-footer bg-white d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-pen text-gray fa-sm fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </button>
+                      <button
+                        class="rounded-3 border-0 icon-footer bg-white d-flex align-items-center justify-content-center"
+                      >
+                        <i
+                          class="fa-solid fa-trash text-gray fa-sm fa-stack-1x fa-inverse position-static"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+              <div class="row row-noContacts d-none">
+                <div class="noContacts  text-center py-5 col-12">
                   <span class="fa-stack fa-2x mb-2">
                     <i
                       class="fa-solid fa-square text-light-gray2 fa-stack-2x"
