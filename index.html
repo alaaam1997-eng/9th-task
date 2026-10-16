@@ -99,6 +99,9 @@
                     placeholder="Enter full name"
                     required
                   />
+                  <div class="alert alert-danger p-1 d-none">
+                    Name must contain only letters and spaces (2–50 characters)
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="phoneNumber" class="form-label"
@@ -111,6 +114,9 @@
                     placeholder="e.g.,01012345678"
                     required
                   />
+                  <div class="alert alert-danger p-1 d-none">
+                    Please enter a valid Egyptian phone number
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="emailAddress" class="form-label"
@@ -122,6 +128,9 @@
                     id="emailAddress"
                     placeholder="Enter email address"
                   />
+                  <div class="alert alert-danger p-1 d-none">
+                    Please enter a valid email address
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="address" class="form-label">Address</label>
@@ -187,14 +196,6 @@
               >
                 Save contact
               </button>
-              <button
-                type="button"
-                id="editButton"
-                class="btn btn-primary d-none"
-                data-bs-dismiss="modal"
-              >
-                edit contact
-              </button>
             </div>
           </div>
         </div>
@@ -214,7 +215,9 @@
             <div class="modal-body">
               <form id="myForm">
                 <div class="mb-3">
-                  <label for="fullNameUpdate" class="form-label">Full Name *</label>
+                  <label for="fullNameUpdate" class="form-label"
+                    >Full Name *</label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -222,6 +225,9 @@
                     placeholder="Enter full name"
                     required
                   />
+                  <div class="alert alert-danger p-1 d-none">
+                    Name must contain only letters and spaces (2–50 characters)
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="phoneNumberUpdate" class="form-label"
@@ -234,6 +240,9 @@
                     placeholder="e.g.,01012345678"
                     required
                   />
+                  <div class="alert alert-danger p-1 d-none">
+                    Please enter a valid Egyptian phone number
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="emailAddressUpdate" class="form-label"
@@ -245,6 +254,9 @@
                     id="emailAddressUpdate"
                     placeholder="Enter email address"
                   />
+                  <div class="alert alert-danger p-1 d-none">
+                    Please enter a valid email address
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="addressUpdate" class="form-label">Address</label>
@@ -304,7 +316,7 @@
               </button>
               <button
                 type="button"
-                id="editButton"
+                id="updatedButton"
                 class="btn btn-primary"
                 data-bs-dismiss="modal"
               >
@@ -387,7 +399,7 @@
               </div>
             </section>
             <section id="contactsContainer" class="py-5 px-4">
-              <div class="row row-contactsContainer">
+              <div class="row gap-2 row-contactsContainer">
                 <!-- <div class="col-6 bg-white rounded-4 shadow-sm p-3">
                   <div class="d-flex gap-2">
                     <div
@@ -517,7 +529,7 @@
                 </div> -->
               </div>
               <div class="row row-noContacts d-none">
-                <div class="noContacts  text-center py-5 col-12">
+                <div class="noContacts text-center py-5 col-12">
                   <span class="fa-stack fa-2x mb-2">
                     <i
                       class="fa-solid fa-square text-light-gray2 fa-stack-2x"
@@ -581,11 +593,14 @@
         </div>
       </div>
     </main>
+
+</script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
   </body>
 </html>

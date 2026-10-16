@@ -18,18 +18,17 @@ var emergencyInputUpdate = document.querySelector("#contactEmergencyUpdate");
 var groupInputUpdate = document.querySelector("#groupUpdate");
 var closeButton = document.querySelector("#closeButton");
 var saveButton = document.querySelector("#saveButton");
-var editButton = document.querySelector("#editButton");
+var updatedButton = document.querySelector("#updatedButton");
 var favoriteBtn = document.querySelector(".favoriteBtn");
 var emergencyBtn = document.querySelector(".emergencyBtn i");
 var heartBtn = document.querySelector(".heartBtn");
 var starIcon = document.querySelector(".starIcon");
 var heartIcon = document.querySelector(".heartIcon");
 var myForm = document.querySelector("#myForm");
+var nameAlert = document.querySelector(".alert");
 var updatedIndex;
 var contacts = loadContacts();
-
 var noContacts = document.querySelector(".row-noContacts");
-
 
 function loadContacts() {
   if (localStorage.getItem("contacts")) {
@@ -52,27 +51,25 @@ function addContact() {
   };
   contacts.push(newContact);
   localStorage.setItem("contacts", JSON.stringify(contacts));
-  displayContacts();
-}
+  displayContacts();}
+
 
 function displayContacts() {
   var contentToRender = "";
   if (contacts.length > 0) {
     for (var i = 0; i < contacts.length; i++) {
-
       var isEmer = contacts[i].contactEmergency;
-
-
+      var isFav = contacts[i].contactFavorite;
 
       contentToRender += `
-        <div class="col-lg-6 bg-white rounded-4 shadow-sm p-3 mb-3 ">
+        <div class="col-lg-5 bg-white rounded-4 shadow-sm p-3 mb-3 ">
                   <div class="d-flex gap-2">
                     <div
                       class="img-card position-relative bg-linear-orange rounded-3 d-flex align-items-center justify-content-center"
                     >
                     <p class="fw-semibold fs-5 text-white">A</p>
                       <div
-                        class="starIcon rounded-circle bg-gold border border-2 border-white icon icon-top d-flex align-items-center justify-content-center position-absolute"
+                        class="starIcon rounded-circle bg-gold border border-2 border-white icon icon-top d-flex align-items-center justify-content-center position-absolute ${isFav == false ? "d-none" : ""}"
                       >
                         <i
                           class="fa-solid fa-star fa-2xs fa-stack-1x fa-inverse position-static"
@@ -180,14 +177,14 @@ function displayContacts() {
                     <div class="d-flex align-items-center gap-2">
                       ${
                         contacts[i]?.contactFavorite
-                          ? `<button onclick="favoriteBtnClick(this)"
+                          ? `<button onclick="favoriteBtnClick(this, ${i})"
                         class="favoriteBtn rounded-3 border-0 bg-light-orange icon-footer d-flex align-items-center justify-content-center"
                       >
                         <i
                           class="fa-solid fa-star text-gold fa-sm fa-stack-1x fa-inverse position-static"
                         ></i>
                       </button>`
-                          : `<button onclick="favoriteBtnClick(this)"
+                          : `<button onclick="favoriteBtnClick(this, ${i})"
                         class="favoriteBtn rounded-3 border-0 bg-white icon-footer d-flex align-items-center justify-content-center"
                       >
                         <i
@@ -232,16 +229,15 @@ function displayContacts() {
                 </div>
           `;
     }
-        noContacts.classList.replace("d-block" , "d-none");
+    noContacts.classList.replace("d-block", "d-none");
 
-    document.querySelector(".row-contactsContainer").innerHTML = contentToRender;
+    document.querySelector(".row-contactsContainer").innerHTML =
+      contentToRender;
   } else {
-    // document.getElementById("contactsContainer").innerHTML = contentToRender;
-    noContacts.classList.replace("d-none" , "d-block");
-    document.querySelector(".row-contactsContainer").innerHTML = contentToRender;
+    noContacts.classList.replace("d-none", "d-block");
+    document.querySelector(".row-contactsContainer").innerHTML =
+      contentToRender;
   }
-
-  // if i put + before = the ui not update when i delet the contact
 }
 
 function emergencyBtnClick(btn, index) {
@@ -256,7 +252,6 @@ function emergencyBtnClick(btn, index) {
     heartBtn.classList.add("fa-solid");
     heartBtn.classList.add("bg-light-red");
     heartBtn.classList.remove("bg-white");
-    // heartIcon.classList.replace("d-block", "d-none");
   } else {
     heartBtn.classList.remove("text-red");
     heartBtn.classList.add("text-gray");
@@ -266,16 +261,13 @@ function emergencyBtnClick(btn, index) {
     heartBtn.classList.add("fa-heart");
     heartBtn.classList.remove("bg-light-red");
     heartBtn.classList.add("bg-white");
-    // heartIcon.classList.replace("d-none", "d-block");
   }
 
-  
-  
   localStorage.setItem("contacts", JSON.stringify(contacts));
-  displayContacts()
-  console.log('test 9')
+  displayContacts();
 }
-function favoriteBtnClick(btn) {
+function favoriteBtnClick(btn, index) {
+  contacts[index].contactFavorite = !contacts[index].contactFavorite;
   var favoriteBtn = btn.querySelector(".fa-star");
   if (favoriteBtn.classList.contains("text-gray")) {
     favoriteBtn.classList.remove("fa-regular");
@@ -283,15 +275,15 @@ function favoriteBtnClick(btn) {
     favoriteBtn.classList.add("text-gold");
     favoriteBtn.classList.add("fa-solid");
     favoriteBtn.classList.add("bg-light-orange");
-    starIcon.classList.replace("d-block", "d-none");
   } else {
     favoriteBtn.classList.add("text-gray");
     favoriteBtn.classList.add("fa-regular");
     favoriteBtn.classList.remove("text-gold");
     favoriteBtn.classList.remove("fa-solid");
     favoriteBtn.classList.remove("bg-light-orange");
-    starIcon.classList.replace("d-none", "d-block");
   }
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+  displayContacts();
 }
 
 saveButton.addEventListener("click", addContact);
@@ -301,26 +293,63 @@ saveButton.addEventListener("click", function () {
 displayContacts();
 
 function deleteContact(index) {
-  debugger;
   contacts.splice(index, 1);
   localStorage.setItem("contacts", JSON.stringify(contacts));
   displayContacts();
 }
 
 function setFormForUpdate(index) {
+  updatedIndex = index;
   fullNameInputUpdate.value = contacts[index].fullName;
   phoneInputUpdate.value = contacts[index].phoneNumber;
-  console.log(phoneInputUpdate.value);
-  
   emailInputUpdate.value = contacts[index].emailAddress;
   addressInputUpdate.value = contacts[index].address;
   groupInputUpdate.value = contacts[index].group;
   notesInputUpdate.value = contacts[index].notes;
   emergencyInputUpdate.checked = contacts[index].contactEmergency;
-  emergencyInputUpdate.checked = contacts[index].contactFavorite;
-
+  favoriteInputUpdate.checked = contacts[index].contactFavorite;
 }
 
 function updateContact() {
-  console.log("hiiiiiiiiiiiiii");
+  contacts[updatedIndex].fullName = fullNameInputUpdate.value;
+  contacts[updatedIndex].phoneNumber = phoneInputUpdate.value;
+  contacts[updatedIndex].emailAddress = emailInputUpdate.value;
+  contacts[updatedIndex].address = addressInputUpdate.value;
+  contacts[updatedIndex].group = groupInputUpdate.value;
+  contacts[updatedIndex].notes = notesInputUpdate.value;
+  contacts[updatedIndex].contactEmergency = emergencyInputUpdate.value;
+  contacts[updatedIndex].contactFavorite = favoriteInputUpdate.value;
+  (localStorage.setItem("contacts", JSON.stringify(contacts)),
+    displayContacts(contacts));
+  myForm.reset();
 }
+updatedButton.addEventListener("click", updateContact);
+
+function validateContact(element , regex) {
+  if (regex.test(element.value)) {
+    element.nextElementSibling.classList.replace("d-block", "d-none");
+  } else {
+    element.nextElementSibling.classList.replace("d-none", "d-block");
+  }
+}
+
+
+fullNameInputUpdate.addEventListener("keydown", function () {
+  validateContact(fullNameInputUpdate,/^[A-Za-z ]{2,50}$/);
+});
+fullNameInput.addEventListener("keydown", function () {
+  validateContact(fullNameInput,/^[A-Za-z ]{2,50}$/);
+});
+phoneInput.addEventListener("keydown", function () {
+  validateContact(phoneInput,/^01[0125][0-9]{8}$/);
+});
+phoneInputUpdate.addEventListener("keydown", function () {
+  validateContact(phoneInputUpdate,/^01[0125][0-9]{8}$/);
+});
+emailInput.addEventListener("keydown", function () {
+  validateContact(emailInput,/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+});
+emailInputUpdate.addEventListener("keydown", function () {
+  validateContact(emailInputUpdate,/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+});
+
